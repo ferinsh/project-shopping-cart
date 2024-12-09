@@ -11,12 +11,12 @@ const Cart = () => {
     const updateCart = useUpdateCart();
     
     const [products, setProducts] = useState([])
-    console.log(products)
+    // console.log(products)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
     let totalPrice = getTotalPrice();
-    console.log(totalPrice)
+    // console.log(totalPrice)
 
     useEffect(() => {
         // console.log("running effect...")
