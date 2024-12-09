@@ -52,7 +52,7 @@ const Cart = () => {
     function getTotalPrice(){
         let price = 0;
         products.map((product) => {
-            price += product.price
+            price += (product.price * product.quantity)
         })
         return price
     }
