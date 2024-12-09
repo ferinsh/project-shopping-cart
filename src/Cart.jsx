@@ -142,6 +142,33 @@ const Cart = () => {
                     </div>
                     <div id="cart_checkout">
                         <h2>Estimated Price: $ {totalPrice}</h2>
+                        {/* <section className='checkout_summary'>
+                            {products.map((product) => {
+                                return (
+                                    <div key={product.id} className='summary_item'>
+                                        <span className='summary_title'>{product.title}</span>
+                                        <span className='summary_quantity'>{product.quantity}</span>
+                                        <span className='summary_price'>$ {(product.quantity * product.price)}</span>
+                                    </div>
+                                )
+                            })}
+                        </section> */}
+                        <table className='checkout_summary'>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                            {products.map((product) => {
+                                return (
+                                    <tr key={product.id}>
+                                        <td>{product.title}</td>
+                                        <td>{product.quantity}</td>
+                                        <td>{(product.price * product.quantity)}</td>
+                                    </tr>
+                                )
+                            })}
+                        </table>
                         <div className="checkout_controls">
                             <button className="cart_checkout_button" onClick={handleCheckoutSubmit}>Checkout</button>
                         </div>

@@ -290,12 +290,39 @@ h1 {
 
   box-sizing: border-box;
   padding-left: 20px;
+  padding-right: 20px;
 }
 #cart_checkout > h2 {
   width: 100%;
   /* height: 10%; */
   text-align: start;
   border-bottom: 1px solid black;
+}
+.checkout_summary {
+  width: 100%;
+
+  margin-bottom: 10px;
+  text-align: start;
+  background-color: antiquewhite;
+
+  border-radius: 8px;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  padding: 10px;
+
+}
+.summary_item{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 8fr 1fr 2fr;
+  gap: 10px;
+
+}
+.summary_item > span {
+  text-wrap: nowrap;
+  text-align: start;
+  overflow: hidden;
+  max-width: 70%;
 }
 .checkout_controls{
   width: 100%;
