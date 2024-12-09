@@ -70,6 +70,10 @@ const Cart = () => {
         navigate('/shop/all')
     }
 
+    function handleCartClear(){
+        updateCart({})
+    }
+
     if(loading){
         return (
             <div id="cart">
@@ -153,23 +157,26 @@ const Cart = () => {
                                 )
                             })}
                         </section> */}
-                        <table className='checkout_summary'>
-                            <tr>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                            </tr>
-                            {products.map((product) => {
-                                return (
-                                    <tr key={product.id}>
-                                        <td>{product.title}</td>
-                                        <td>{product.quantity}</td>
-                                        <td>{(product.price * product.quantity)}</td>
-                                    </tr>
-                                )
-                            })}
-                        </table>
+                        <div className="checkout_summary_holder">
+                            <table className='checkout_summary'>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                                {products.map((product) => {
+                                    return (
+                                        <tr key={product.id}>
+                                            <td>{product.title}</td>
+                                            <td>{product.quantity}</td>
+                                            <td>{(product.price * product.quantity)}</td>
+                                        </tr>
+                                    )
+                                })}
+                            </table>
+                        </div>
                         <div className="checkout_controls">
+                            <button className="cart_clear_button" onClick={handleCartClear}>Clear Cart</button>
                             <button className="cart_checkout_button" onClick={handleCheckoutSubmit}>Checkout</button>
                         </div>
                     </div>

@@ -287,6 +287,7 @@ h1 {
 }
 
 #cart_checkout {
+  max-height: 90%;
 
   box-sizing: border-box;
   padding-left: 20px;
@@ -298,36 +299,40 @@ h1 {
   text-align: start;
   border-bottom: 1px solid black;
 }
+.checkout_summary_holder {
+  max-height: 300px;
+  overflow-y: hidden;
+  border-radius: 8px;
+
+  box-sizing: border-box;
+  /* padding: 10px; */
+
+  margin-bottom: 10px;
+
+  &:hover {
+    overflow-y: scroll;
+  }
+}
 .checkout_summary {
   width: 100%;
-
+  max-height: 700px;
   margin-bottom: 10px;
   text-align: start;
   background-color: antiquewhite;
 
-  border-radius: 8px;
+  /* border-radius: 8px; */
   /* border: 1px solid black; */
   box-sizing: border-box;
   padding: 10px;
-
 }
-.summary_item{
-  width: 100%;
-  display: grid;
-  grid-template-columns: 8fr 1fr 2fr;
-  gap: 10px;
-
-}
-.summary_item > span {
-  text-wrap: nowrap;
-  text-align: start;
-  overflow: hidden;
-  max-width: 70%;
+th {
+  text-align: left;
 }
 .checkout_controls{
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: end;
+  gap: 20px;
 }
 .checkout_controls > button {
   background-color: blue;
