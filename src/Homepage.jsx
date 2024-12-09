@@ -3,7 +3,6 @@ import Navbar from './Navbar'
 
 const Homepage = () => {
 
-
     const homepageStyle = {
         height: '90%',
         width: '100%',
@@ -33,8 +32,8 @@ const Homepage = () => {
         <>
         <Navbar />
         <div id="homepage" style={homepageStyle}>
-            <h1 id="homepage_header" style={homepageHeaderStyle}>Welcome to RandomShops!</h1>
-            <Link to='/shop' style={linkStyle}>Proceed to Shop</Link>
+            <h1 id="homepage_header" style={homepageHeaderStyle}>Welcome to BasketPal!</h1>
+            <Link to='/shop/all' style={linkStyle}>Proceed to Shop</Link>
         </div>
         </>
     )
