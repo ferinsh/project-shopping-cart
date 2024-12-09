@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar'
 import { useCart, useUpdateCart } from './components/context/CartContext'
 
 const Cart = () => {
+    const navigate = useNavigate()
+
     const cart = useCart();
-    console.log(cart)
+    // console.log(cart)
     const updateCart = useUpdateCart();
     
     const [products, setProducts] = useState([])
@@ -12,8 +15,11 @@ const Cart = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
+    let totalPrice = getTotalPrice();
+    console.log(totalPrice)
+
     useEffect(() => {
-        console.log("running effect...")
+        // console.log("running effect...")
         const fetchProducts = async () => {
             setLoading(true)
             setError(null)
@@ -43,13 +49,25 @@ const Cart = () => {
         }
     }, [cart])
 
+    function getTotalPrice(){
+        let price = 0;
+        products.map((product) => {
+            price += product.price
+        })
+        return price
+    }
+
     function handleProductDelete(event) {
-        console.log(event.target.id)
+        // console.log(event.target.id)
         updateCart((prevCart) => {
             const newCart = {...prevCart}
             delete newCart[event.target.id]
             return newCart
         })
+    }
+
+    function handleCheckoutSubmit(){
+        navigate('/shop/all')
     }
 
     if(loading){
@@ -60,7 +78,9 @@ const Cart = () => {
                     <div id="cart_products">
                         {"Loading..."}      
                     </div>
-                    <div id="cart_checkout"></div>
+                    <div id="cart_checkout">
+                        {"Loading..."}
+                    </div>
                 </div>
             </div>
         )
@@ -113,14 +133,19 @@ const Cart = () => {
                                     </div>
                                     <div className="cart_product_controls">
                                         <span className="cart_product_price">$ {product.price}</span>
-                                        <span className="cart_product_amount">{product.quantity}</span>
+                                        <span className="cart_product_amount">x {product.quantity}</span>
                                         <button className="cart_product_delete" id={product.id} onClick={handleProductDelete}>❌</button>
                                     </div>
                                 </div>
                             )
                         })}
                     </div>
-                    <div id="cart_checkout"></div>
+                    <div id="cart_checkout">
+                        <h2>Estimated Price: $ {totalPrice}</h2>
+                        <div className="checkout_controls">
+                            <button className="cart_checkout_button" onClick={handleCheckoutSubmit}>Checkout</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 

@@ -213,6 +213,11 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: hidden;
+
+  &:hover {
+    overflow-y: scroll;
+  }
 }
 .cart_product_card {
   height: 100px;
@@ -263,8 +268,46 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+.cart_product_controls > span {
+  width: 100%;
+  text-align: end;
 }
 .cart_product_delete{
   background-color: white;
   color: red;
+  margin-left: auto;
+  font-size: 30px;
+  /* width: 50%; */
+  text-align: center;
+  padding: 0;
+}
+
+#cart_checkout {
+
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+#cart_checkout > h2 {
+  width: 100%;
+  /* height: 10%; */
+  text-align: start;
+  border-bottom: 1px solid black;
+}
+.checkout_controls{
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+.checkout_controls > button {
+  background-color: blue;
+  color: white;
+  outline: none;
+
+  &:hover {
+    background-color: green;
+  }
 }
